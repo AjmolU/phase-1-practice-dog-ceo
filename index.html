@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Intro to AJAX Practice Tasks</title>
-    <script src="src/index.js" charset="utf-8"></script>
+    <script src="src/index.js" charset="utf-8" defer></script>
   </head>
   <body>
     <h1>Dog CEO</h1>
@@ -15,11 +15,18 @@
     <hr>
     <label for="select-breed">Filter Breeds That Start with:</label>
     <select id="breed-dropdown" name="select-breed">
-      <option value="a">a</option>
-      <option value="b">b</option>
-      <option value="c">c</option>
-      <option value="d">d</option>
+      <option value='default'></option>
     </select>
+    <script>
+      const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+      let breedDropdown = document.getElementById('breed-dropdown');
+      for (let letter of alphabet) {
+        let option = document.createElement('option');
+        let text = document.createTextNode(letter);
+        option.appendChild(text);
+        breedDropdown.insertBefore(option, breedDropdown.lastChild);
+      }
+    </script>
 
     <ul id="dog-breeds">
 
